@@ -3,7 +3,6 @@ import { AppConfig } from '@/utils/AppConfig';
 import Base from '@/layouts/Base.astro';
 import Section from '@/components/Section.astro';
 import Card from '@/components/Card.astro';
-import Heading from '@/components/Heading.astro';
 import { sortPostsByDate } from '@/utils/data.util';
 
 const { title } = AppConfig;
@@ -14,7 +13,7 @@ allPosts.sort(sortPostsByDate);
 ---
 
 <Base head={{ title, description }}>
-	<Section><Heading title="Posts" /></Section>
+	<!--<Section><Heading title="Posts" /></Section>-->
 	<Section>
 		{
 			allPosts.map((post: any) => (

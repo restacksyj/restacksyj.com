@@ -1,0 +1,49 @@
+---
+
+import { AppConfig } from '@/utils/AppConfig';
+import Base from '@/layouts/Base.astro';
+import Section from '@/components/Section.astro';
+import WorkCard from '@/components/WorkCard.astro';
+const { title } = AppConfig;
+const { description } = AppConfig;
+
+export interface WorkList{
+    url: string
+    description: string
+    title: string
+    tags: Array<string>
+    github: string 
+}
+
+const workList:Array<WorkList>= [
+    {
+        "url": "https://play.google.com/store/apps/datasafety?id=com.buildjuice.lyriks&hl=en_US",
+        "description": "Some kind of description",
+        "title": "Lyrik - Instant lyrics Search Engine",
+        "tags": ["flutter", "dart"],
+        "github": "https://github.com/restacksyj/lyrics_app",
+    },
+    {
+        "url": "https://github.com/restacksyj/george",
+        "description": "Some kind of description",
+        "title": "George - Language interpreter",
+        "tags": ["java", "c"],
+        "github": "https://github.com/restacksyj/george",
+    },
+]
+
+---
+
+
+<Base head={{ title, description }}>
+	<Section>
+		{
+			workList.map((work: WorkList) => (
+				<div class="mb-4 basis-1 last:mb-0">
+					<WorkCard work={work} />
+				</div>
+			))
+		}
+
+	</Section>
+</Base>

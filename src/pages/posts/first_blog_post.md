@@ -1,163 +1,65 @@
 ---
 layout: ../../layouts/post.astro
-title: "This is the first post of my new Astro blog."
-pubDate: 2023-12-23
-description: "This is the first post of my new Astro blog."
-author: "nicdun"
+title: "Writing my own language interpreter - Part 00"
+pubDate: 2024-10-03
+description: "Learning how parsing, ASTs and bytecode works"
+author: "restacksyj"
 excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
 image:
   src:
   alt:
-tags: ["tag1", "tag2", "tag3"]
+tags: ["java", "compiler"]
 ---
 
-This is a paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
+So recently I stumbled upon Crafting Interpreters book and it made me excited to try building
+language interpreters of my own. I'll be documenting the whole journey in the upcoming blogs.
+This is part 00.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
+> Notes from Crafting interpreter
+#### Frontend of programming languages
+1. Lexing ( tokens )
+2. Parsing - builds a tree structure ( syntax trees / ast ) from the tokens
+  a. reports syntax errors as well
+3. binding or resolution
+  a. where scope comes into play
+  b. if statically typed, we type check if failed throw type error
+4. attributes, symbol table
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
+#### Intermediate representation
 
-## Headings
+#### Optimization (huge part if compiled languages)
+a. constant folding
+languages like Lua and CPython spend most of their time optimizing runtime
 
-# H1 For example
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-## H2 For example
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-### H3 For example
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-#### H4 For example
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-##### H5 For example
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-###### H6 For example
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-## Emphasis
-
-Emphasis, aka italics, with _asterisks_ or _underscores_.
-
-Strong emphasis, aka bold, with **asterisks** or **underscores**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-## Blockquotes
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
-
-## Horizontal separator
-
-This is a horizontal separator:
+#### Code Generation
+assembly like instructions
 
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
+#### Backend
+Generating bytecode (Virtual machine code)
+Runtime ( fully compiled language, code implementing runtime gets inserted directly into executable)
+
+
+#### Single Pass Compilers
+No code parsing, analysis and code gen; output code in the parser without using IRs
+
+#### Tree walk interpreters
+Begin executing code right after parsing into AST
+
+#### Transpilers
+source to source compiler,
+consider you made a language -> compile to C -> then C compilation pipeline begins
+
+#### JITs (Just in Time Compilation)
+executing code by compiling to machine code
+
+## Difference between Compilers and interpreters
+Generating bytecode or machine code, you are compiling ( doesn't execute it )
+when we say interpreter, takes source code and executes immediately ( runs from source )
 
 ---
 
-## List types
-
-### Ordered list
-
-1. List item 1
-2. List item 2
-   1. Nested list item A
-   2. Nested list item B
-3. List item 3
-
-### Unordered list
-
-- List item
-- List item
-  - Nested list item
-  - Nested list item
-    - Double nested list item
-    - Double nested list item
-- List item
-
-### Mixed list
-
-1. First ordered list item
-2. Another item
-   - Unordered sub-list.
-3. Actual numbers don't matter, just that it's a number
-   1. Ordered sub-list
-4. And another item.
-
-## Links
-
-[Inline-style link](https://www.google.com)
-
-[Inline-style link with title](https://www.google.com "Google's Homepage")
-
-[Reference-style link][arbitrary case-insensitive reference text]
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-## Images
-
-Images included in _\_posts_ folder are lazy loaded.
-
-Inline-style:
-![alt text](/src/images/random.jpeg "Logo Title Text 1")
-
-## Table
-
-| Tables        |      Are      | Cool |
-| ------------- | :-----------: | ---: |
-| col 3 is      | right-aligned | 1600 |
-| col 2 is      |   centered    |   12 |
-| zebra stripes |   are neat    |    1 |
-
-| Markdown | Less      | Pretty     |
-| -------- | --------- | ---------- |
-| _Still_  | `renders` | **nicely** |
-| 1        | 2         | 3          |
-
-## Syntax highlight
-
-```ts title="astro.config.mjs" showLineNumbers {1-2,5-6}
-import { defineConfig } from "astro/config";
-import vercelStatic from "@astrojs/vercel/static";
-
-export default defineConfig({
-  output: "static",
-  adapter: vercelStatic({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
-});
-```
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.
-
-```python showLineNumbers
-s = "Python syntax highlighting"
-print s
-```
+Thanks Robert for the amazing book, can't wait to read more about interpreters on
+[Crafting Interpreters](https://craftinginterpreters.com/introduction.html)
