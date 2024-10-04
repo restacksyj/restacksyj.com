@@ -4,6 +4,7 @@ const slug = Astro.url.pathname;
 ---
 
 <Section>
+    <div>
 	<div class="flex justify-between">
 		<div class="text-3xl font-bold">
 			<a href="/">
@@ -17,21 +18,24 @@ const slug = Astro.url.pathname;
 						<a
 							href="/work"
 							class={`mr-3 hover:text-orange-600 ${slug === '/work' ? 'text-orange-600' : ''}`}
-							>WORK</a>
+							>WORK</a
+						>
 					</li>
 					<li>
 						<a
 							href="https://drive.google.com/file/d/1BAMx3-gR70IrjVW8RDsh8VrvxWiOIZhW/view?usp=sharing"
 							class="mr-3 hover:text-orange-600"
 							target="_blank"
-							rel="noopener noreferrer">RESUME</a>
+							rel="noopener noreferrer">RESUME</a
+						>
 					</li>
 					<!--<li><a href="/tags" class="mr-3 hover:text-orange-600">TAGS</a></li>-->
 					<li>
 						<a
 							href="/posts"
 							class={`hover:text-orange-600 ${slug === '/posts' ? 'text-orange-600 font-bold' : ''}`}
-							>BLOG</a>
+							>BLOG</a
+						>
 					</li>
 				</ul>
 			</nav>
@@ -72,6 +76,36 @@ const slug = Astro.url.pathname;
 			</div>
 		</div>
 	</div>
+        <div class="md:hidden pt-10 flex flex-row">
+			<nav>
+				<ul class="flex-row flex">
+					<li>
+						<a
+							href="/work"
+							class={`mr-3 hover:text-orange-600 ${slug === '/work' ? 'text-orange-600' : ''}`}
+							>WORK</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://drive.google.com/file/d/1BAMx3-gR70IrjVW8RDsh8VrvxWiOIZhW/view?usp=sharing"
+							class="mr-3 hover:text-orange-600"
+							target="_blank"
+							rel="noopener noreferrer">RESUME</a
+						>
+					</li>
+					<!--<li><a href="/tags" class="mr-3 hover:text-orange-600">TAGS</a></li>-->
+					<li>
+						<a
+							href="/posts"
+							class={`hover:text-orange-600 ${slug === '/posts' ? 'text-orange-600 font-bold' : ''}`}
+							>BLOG</a
+						>
+					</li>
+				</ul>
+			</nav>
+        </div>
+    </div>
 </Section>
 
 <script>
