@@ -30,7 +30,7 @@ const options = {
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://restacksyj.com/',
+	site: 'https:/restacksyj.com/',
 	markdown: {
 		syntaxHighlight: false,
 		// Disable syntax built-in syntax hightlighting from astro
@@ -38,7 +38,7 @@ export default defineConfig({
 		remarkPlugins: [remarkReadingTime]
 	},
 	integrations: [tailwind(), react(), sitemap()],
-	output: 'static',
+	output: 'server',
 	adapter: vercelStatic({
 		webAnalytics: {
 			enabled: true
