@@ -39,9 +39,9 @@ export default defineConfig({
 	},
 	integrations: [tailwind(), react(), sitemap()],
 	output: 'static',
-	adapter: vercelStatic({
-		webAnalytics: {
-			enabled: true
-		}
-	})
+	//adapter: vercelStatic({
+	//	webAnalytics: {
+	//		enabled: true
+	//	}
+	//})
 });
