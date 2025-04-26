@@ -27,6 +27,9 @@ I got a brain spark right at this moment, why not I create an app that does it. 
 [WhichSpace](https://github.com/gechr/WhichSpace)  updates the desktop space in the menu bar, so my brain goes like clone this repo, figure out how to build this and then just add another function that calls some Widget to display text in the middle of the screen. So simple right :)
 
 
+> [!note] Note
+> It is not available on brew just yet :)
+
 
 
 

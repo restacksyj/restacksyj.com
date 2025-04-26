@@ -4,7 +4,7 @@ title: "Writing my own language interpreter - Part 00"
 pubDate: 2024-10-03
 description: "Learning how parsing, ASTs and bytecode works"
 author: "restacksyj"
-excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+excerpt: Learning how to make language interpreter on my own
 image:
   src:
   alt:
