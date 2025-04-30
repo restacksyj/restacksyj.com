@@ -7,6 +7,7 @@ const getData = () => {
 export const onRequest: MiddlewareHandler = async (context, next) => {
     const host = context.request.headers.get('host');
     const subdomain = host?.split('.')[0];
+    console.log('Middleware running, host:', context.request.headers.get('host'));
 
     if (subdomain && subdomain !== 'www') {
         const { data } = getData();
