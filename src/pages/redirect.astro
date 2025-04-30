@@ -15,9 +15,14 @@ try {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Redirecting...</title>
 		<meta name="robots" content="noindex" />
-		<script define:vars={{ redirectUrl }}>
+		<script is:inline define:vars={{ redirectUrl }}>
 			setTimeout(() => {
-				window.location.href = redirectUrl;
+				console.log(redirectUrl);
+				if (redirectUrl.startsWith('http://') || redirectUrl.startsWith('https://')) {
+					window.location.replace(redirectUrl);
+				} else {
+					window.location.replace('/');
+				}
 			}, 1000);
 		</script>
 		<style>

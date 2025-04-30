@@ -10,6 +10,54 @@
 		},
 		{
 			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/imprint\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Index_pages\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts\\/Language Interpreter\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts\\/SpaceNumber\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/redirect\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/rss\\.xml\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/tags\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/tags\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/work\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
 		}
 	]
 }
