@@ -1,0 +1,66 @@
+---
+const to = Astro.url.searchParams.get('to') ?? '/';
+let redirectUrl = '/';
+try {
+	redirectUrl = to;
+} catch (e) {
+	console.error('Invalid URL', e);
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Redirecting...</title>
+		<meta name="robots" content="noindex" />
+		<script define:vars={{ redirectUrl }}>
+			setTimeout(() => {
+				window.location.href = redirectUrl;
+			}, 1000);
+		</script>
+		<style>
+			body {
+				font-family:
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					sans-serif;
+				max-width: 600px;
+				margin: 0 auto;
+				padding: 2rem;
+				line-height: 1.5;
+			}
+			h1 {
+				color: #333;
+			}
+			.info {
+				background-color: #f0f8ff;
+				border-left: 4px solid #0077cc;
+				padding: 1rem;
+				border-radius: 0 4px 4px 0;
+			}
+			a {
+				color: #0077cc;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			.error {
+				color: #cc0000;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="redirect-container">
+			<h1>🔁 Redirecting...</h1>
+			<div class="info">
+				<p>You are being redirected to {redirectUrl}</p>
+				<p>If you're not redirected automatically, <a href={redirectUrl}>click here</a>.</p>
+			</div>
+		</div>
+	</body>
+</html>
